@@ -19,7 +19,7 @@ export default function LoginScreen() {
     <SafeAreaView>
       <View
         style={{
-          backgroundColor: Colors.light.tint,
+          backgroundColor: Colors.primary,
           opacity: 0.1,
           width: 350,
           height: 350,
@@ -38,7 +38,7 @@ export default function LoginScreen() {
           right: "-15%",
           top: -160,
           borderRadius: 200,
-          borderColor: Colors.light.tint,
+          borderColor: Colors.primary,
           borderWidth: 2,
         }}
       ></View>
@@ -56,7 +56,7 @@ export default function LoginScreen() {
           <Text
             style={{
               fontSize: 30,
-              color: Colors.light.tint,
+              color: Colors.primary,
               fontWeight: 900,
               marginVertical: Spacing * 3,
             }}
@@ -78,12 +78,12 @@ export default function LoginScreen() {
             marginVertical: Spacing * 3,
           }}
         >
-          <AppTextInput placeholder="Email" cursorColor={Colors.light.tint} />
+          <AppTextInput placeholder="Email" cursorColor={Colors.primary} />
           <View>
             <AppTextInput
               placeholder="Password"
               secureTextEntry={!isPasswordShown}
-              cursorColor={Colors.light.tint}
+              cursorColor={Colors.primary}
             />
             <TouchableOpacity
               onPress={() => setIsPasswordShown(!isPasswordShown)}
@@ -94,9 +94,9 @@ export default function LoginScreen() {
               }}
             >
               {isPasswordShown ? (
-                <Ionicons name="eye-off" size={24} color={Colors.light.text} />
+                <Ionicons name="eye-off" size={24} color={Colors.text} />
               ) : (
-                <Ionicons name="eye" size={24} color={Colors.light.text} />
+                <Ionicons name="eye" size={24} color={Colors.text} />
               )}
             </TouchableOpacity>
           </View>
@@ -108,7 +108,7 @@ export default function LoginScreen() {
           <Text
             style={{
               fontSize: 14,
-              color: Colors.light.tint,
+              color: Colors.primary,
               alignSelf: "flex-end",
               textDecorationLine: 'underline'
             }}
@@ -120,10 +120,10 @@ export default function LoginScreen() {
         <TouchableOpacity
           style={{
             padding: Spacing * 2,
-            backgroundColor: Colors.light.button,
+            backgroundColor: Colors.button,
             marginVertical: Spacing * 3,
             borderRadius: Spacing,
-            shadowColor: Colors.light.text,
+            shadowColor: Colors.text,
             shadowOffset: {
               width: 0,
               height: 4,
@@ -136,7 +136,7 @@ export default function LoginScreen() {
           >
           <Text
             style={{
-              color: Colors.light.background,
+              color: Colors.background,
               textAlign: "center",
               fontSize: 18,
               fontWeight: 'bold',
@@ -150,8 +150,8 @@ export default function LoginScreen() {
           onPress={() => router.push("/welcome/signup")}
           style={{
             padding: Spacing,
-            backgroundColor: Colors.light.gray,
-            shadowColor: Colors.light.text,
+            backgroundColor: Colors.gray,
+            shadowColor: Colors.text,
             shadowOffset: {
               width: 0,
               height: 4,
@@ -164,7 +164,7 @@ export default function LoginScreen() {
         >
           <Text
             style={{
-              color: Colors.light.text,
+              color: Colors.text,
               textAlign: "center",
               fontSize: 14,
               fontWeight: 'bold',
@@ -181,7 +181,7 @@ export default function LoginScreen() {
         >
           <Text
             style={{
-              color: Colors.light.tint,
+              color: Colors.primary,
               textAlign: "center",
               fontSize: 14,
             }}
@@ -197,12 +197,13 @@ export default function LoginScreen() {
             }}
           >
             <TouchableOpacity
+              onPress={() => router.push("/(home)/home")}
               style={{
                 padding: Spacing,
-                backgroundColor: Colors.light.gray,
+                backgroundColor: Colors.gray,
                 borderRadius: Spacing / 2,
                 marginHorizontal: Spacing,
-                shadowColor: Colors.light.text,
+                shadowColor: Colors.text,
                 shadowOffset: {
                   width: 0,
                   height: 4,
@@ -215,17 +216,17 @@ export default function LoginScreen() {
             >
               <Ionicons
                 name="logo-google"
-                color={Colors.light.text}
+                color={Colors.text}
                 size={Spacing * 2}
               />
             </TouchableOpacity>
             <TouchableOpacity
               style={{
                 padding: Spacing,
-                backgroundColor: Colors.light.gray,
+                backgroundColor: Colors.gray,
                 borderRadius: Spacing / 2,
                 marginHorizontal: Spacing,
-                shadowColor: Colors.light.text,
+                shadowColor: Colors.text,
                 shadowOffset: {
                   width: 0,
                   height: 4,
@@ -238,17 +239,17 @@ export default function LoginScreen() {
             >
               <Ionicons
                 name="logo-apple"
-                color={Colors.light.text}
+                color={Colors.text}
                 size={Spacing * 2}
               />
             </TouchableOpacity>
             <TouchableOpacity
               style={{
                 padding: Spacing,
-                backgroundColor: Colors.light.gray,
+                backgroundColor: Colors.gray,
                 borderRadius: Spacing / 2,
                 marginHorizontal: Spacing,
-                shadowColor: Colors.light.text,
+                shadowColor: Colors.text,
                 shadowOffset: {
                   width: 0,
                   height: 4,
@@ -261,7 +262,7 @@ export default function LoginScreen() {
             >
               <Ionicons
                 name="logo-facebook"
-                color={Colors.light.text}
+                color={Colors.text}
                 size={Spacing * 2}
               />
             </TouchableOpacity>

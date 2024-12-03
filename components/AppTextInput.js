@@ -14,20 +14,20 @@ const AppTextInput = ({ ...otherProps }) => {
         {
           fontSize: 14,
           padding: Spacing * 2,
-          backgroundColor: Colors.light.lightPrimary,
+          backgroundColor: Colors.lightPrimary,
           borderRadius: Spacing,
           marginVertical: Spacing,
         },
         focused && {
           borderWidth: 1,
-          borderColor: Colors.light.tint,
+          borderColor: Colors.primary,
           shadowOffset: { width: 4, height: Spacing },
-          shadowColor: Colors.light.tint,
+          shadowColor: Colors.primary,
           shadowOpacity: 0.2,
           shadowRadius: Spacing,
         },
         {
-          shadowColor: Colors.light.text,
+          shadowColor: Colors.text,
           shadowOffset: {
             width: 0,
             height: 4,

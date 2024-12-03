@@ -17,6 +17,31 @@ export default function Otp() {
   };
   return (
     <SafeAreaView>
+      <View
+        style={{
+          backgroundColor: Colors.primary,
+          opacity: 0.1,
+          width: 350,
+          height: 350,
+          position: "absolute",
+          right: "-20%",
+          top: -140,
+          borderRadius: 200,
+        }}
+      ></View>
+      <View
+        style={{
+          opacity: 0.1,
+          width: 400,
+          height: 400,
+          position: "absolute",
+          right: "-15%",
+          top: -160,
+          borderRadius: 200,
+          borderColor: Colors.primary,
+          borderWidth: 2,
+        }}
+      ></View>
       <View style={styles.container}>
         <ImageBackground
           style={{
@@ -61,13 +86,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'center',
     paddingHorizontal: 30,
-    color: Colors.light.tint
+    color: Colors.primary
   },
   resendBtn: {
     fontWeight: 'bold',
     fontSize: 14,
     textAlign: 'center',
-    color: Colors.light.tint
+    color: Colors.primary
   },
   Btn: {
     flexDirection: 'row',

@@ -18,7 +18,7 @@ export default function WelcomeScreen() {
     <SafeAreaView>
       <View
         style={{
-          backgroundColor: Colors.light.tint,
+          backgroundColor: Colors.primary,
           opacity: 0.1,
           width: 350,
           height: 350,
@@ -37,7 +37,7 @@ export default function WelcomeScreen() {
           right: "-15%",
           top: -160,
           borderRadius: 200,
-          borderColor: Colors.light.tint,
+          borderColor: Colors.primary,
           borderWidth: 2,
         }}
       ></View>
@@ -60,7 +60,7 @@ export default function WelcomeScreen() {
           <Text
             style={{
               fontSize: 30,
-              color: Colors.light.tint,
+              color: Colors.primary,
               textAlign: "center",
               fontWeight: "900",
             }}
@@ -71,7 +71,7 @@ export default function WelcomeScreen() {
           <Text
             style={{
               fontSize: 14,
-              color: Colors.light.text,
+              color: Colors.text,
               textAlign: "center",
               marginTop: Spacing * 2,
             }}
@@ -92,12 +92,12 @@ export default function WelcomeScreen() {
           <TouchableOpacity
             onPress={() => router.push("/welcome/login")}
             style={{
-              backgroundColor: Colors.light.tint,
+              backgroundColor: Colors.primary,
               paddingVertical: Spacing * 1.5,
               paddingHorizontal: Spacing * 2,
               width: "48%",
               borderRadius: Spacing,
-              shadowColor: Colors.light.text,
+              shadowColor: Colors.text,
               shadowOffset: {
                 width: 0,
                 height: 4,
@@ -110,7 +110,7 @@ export default function WelcomeScreen() {
           >
             <Text
               style={{
-                color: Colors.light.background,
+                color: Colors.background,
                 fontSize: 16,
                 textAlign: "center",
                 fontWeight: 'bold'
@@ -122,12 +122,12 @@ export default function WelcomeScreen() {
           <TouchableOpacity
             onPress={() => router.push("/welcome/signup")}
             style={{
-              backgroundColor: Colors.light.gray,
+              backgroundColor: Colors.gray,
               paddingVertical: Spacing * 1.5,
               paddingHorizontal: Spacing * 2,
               width: "48%",
               borderRadius: Spacing,
-              shadowColor: Colors.light.text,
+              shadowColor: Colors.text,
               shadowOffset: {
                 width: 0,
                 height: 4,
@@ -140,7 +140,7 @@ export default function WelcomeScreen() {
           >
             <Text
               style={{
-                color: Colors.light.text,
+                color: Colors.text,
                 fontSize: 16,
                 textAlign: "center",
                 fontWeight: 'bold'

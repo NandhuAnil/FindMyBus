@@ -8,7 +8,7 @@ export default function WelcomeLayout() {
       <Stack.Screen name="login" />
       <Stack.Screen name="signup" />
       <Stack.Screen name="otpverify" options={{ headerShown: false, headerTitle: "Verifying you"}}/>
-      <Stack.Screen name="newpass" options={{ headerShown: true, headerTitle: '' }} />
+      <Stack.Screen name="newpass" options={{ headerShown: false, headerTitle: '' }} />
     </Stack>
   );
 }

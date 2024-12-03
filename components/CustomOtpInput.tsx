@@ -59,9 +59,9 @@ const CustomOtpInput: React.FC<OtpInputProps> = ({
             inputStyle,
             focused && {
               borderWidth: 1,
-              borderColor: Colors.light.tint,
+              borderColor: Colors.primary,
               shadowOffset: { width: 4, height: Spacing },
-              shadowColor: Colors.light.tint,
+              shadowColor: Colors.primary,
               shadowOpacity: 0.2,
               shadowRadius: Spacing,
             },
@@ -71,7 +71,7 @@ const CustomOtpInput: React.FC<OtpInputProps> = ({
           onChangeText={(text) => handleInputChange(text, index)}
           value={code[index]}
           autoFocus={index === 0} // Autofocus the first input
-          cursorColor={Colors.light.tint}
+          cursorColor={Colors.primary}
           onFocus={() => setFocused(true)}
         />
       ))}
