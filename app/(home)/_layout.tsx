@@ -23,9 +23,15 @@ const _layout = () => {
         }}
       />
       <Tabs.Screen
+        name="favorite"
+        options={{
+          title: "Favorite",
+        }}
+      />
+      <Tabs.Screen
         name="create"
         options={{
-          title: "Create",
+          title: "Booking",
         }}
       />
       <Tabs.Screen

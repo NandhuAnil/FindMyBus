@@ -9,7 +9,7 @@ const orange = "#ff9c0b";
 const tabIconColor = "#737373";
 
 export default {
-  darkText: dark,
+  darkText: black,
   text: black,
   lightText: white,
   background: white,
