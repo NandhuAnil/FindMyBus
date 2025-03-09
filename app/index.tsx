@@ -49,7 +49,7 @@ export default function WelcomeScreen() {
             backgroundColor: "transparent",
           }}
           resizeMode="contain"
-          source={require("../assets/images/car.png")}
+          source={require("../assets/images/main.png")}
         />
         <View
           style={{
@@ -65,7 +65,7 @@ export default function WelcomeScreen() {
               fontWeight: "900",
             }}
           >
-            Welcome to Parking karooo
+            Find your Bus
           </Text>
 
           <Text
@@ -113,9 +113,9 @@ export default function WelcomeScreen() {
                 color: Colors.background,
                 fontSize: 16,
                 textAlign: "center",
-                fontWeight: 'bold'
+                fontWeight: "bold",
               }}
-              >
+            >
               Login
             </Text>
           </TouchableOpacity>
@@ -143,7 +143,7 @@ export default function WelcomeScreen() {
                 color: Colors.text,
                 fontSize: 16,
                 textAlign: "center",
-                fontWeight: 'bold'
+                fontWeight: "bold",
               }}
             >
               Register
