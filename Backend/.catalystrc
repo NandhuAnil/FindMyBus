@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "15482000000009080",
+      "name": "GovtBusTracker",
+      "domain": {
+        "id": "50025377992",
+        "name": "govtbustracker-60038593393.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60038593393",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

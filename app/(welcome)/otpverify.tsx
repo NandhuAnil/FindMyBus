@@ -12,7 +12,7 @@ export default function Otp() {
   const handleCodeFilled = (code: string) => {
       Alert.alert('OTP Entered', `Your OTP: ${code}`);
       setTimeout(() => {
-        router.push("/welcome/newpass");
+        router.push("/(welcome)/newpass");
       },1000)
   };
   return (

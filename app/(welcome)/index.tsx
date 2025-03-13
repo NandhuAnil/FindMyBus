@@ -10,9 +10,11 @@ import {
 import Colors from "@/constants/Colors";
 import Spacing from "@/constants/Spacing";
 import { useRouter } from "expo-router";
+
 const { height } = Dimensions.get("window");
 
 export default function WelcomeScreen() {
+
   const router = useRouter();
   return (
     <SafeAreaView>
@@ -49,7 +51,7 @@ export default function WelcomeScreen() {
             backgroundColor: "transparent",
           }}
           resizeMode="contain"
-          source={require("../assets/images/main.png")}
+          source={require("../../assets/images/main.png")}
         />
         <View
           style={{
@@ -90,7 +92,7 @@ export default function WelcomeScreen() {
           }}
         >
           <TouchableOpacity
-            onPress={() => router.push("/welcome/login")}
+            onPress={() => router.push("/(welcome)/login")}
             style={{
               backgroundColor: Colors.primary,
               paddingVertical: Spacing * 1.5,
@@ -120,7 +122,7 @@ export default function WelcomeScreen() {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => router.push("/welcome/signup")}
+            onPress={() => router.push("/(welcome)/signup")}
             style={{
               backgroundColor: Colors.gray,
               paddingVertical: Spacing * 1.5,
