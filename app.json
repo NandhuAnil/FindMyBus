@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Parking",
-    "slug": "Parking",
+    "name": "FindMyBus",
+    "slug": "FindMyBus",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
