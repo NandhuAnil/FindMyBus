@@ -12,8 +12,8 @@ import {
 import React from "react";
 import Colors from "@/constants/Colors";
 import Spacing from "@/constants/Spacing";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import ParkingList from "@/components/ParkingList";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AppTextInput from "@/components/AppTextInput";
 
 const { height } = Dimensions.get("window");
 const { width } = Dimensions.get("window");
@@ -82,51 +82,46 @@ const home = () => {
               />
             </TouchableOpacity>
           </View>
-          <View style={styles.searchHeader}>
-            <View style={styles.searchBar}>
-              <View style={styles.searchBackground} />
-              <AntDesign
-                name="search1"
-                size={22}
-                color={Colors.primary}
-                style={styles.icon}
-              />
-              <TextInput
-                placeholder="Search here..."
-                style={styles.input}
-                cursorColor={Colors.primary}
-              />
-            </View>
-            <TouchableOpacity style={styles.filterIcon}>
-              <View style={styles.filterBackground} />
-              <MaterialCommunityIcons
-                name="qrcode-scan"
-                size={24}
-                color={Colors.primary}
-                style={styles.Icon}
-              />
-            </TouchableOpacity>
-          </View>
         </View>
-        <View>
-          <View style={styles.smallHeader}>
-            <Text style={styles.heading}>Popular Parking</Text>
-            <TouchableOpacity>
-              <Text style={{ color: Colors.primary, padding: Spacing * 1.2 }}>
-                See All
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <ParkingList scrollType="horizontal" />
-          <View style={styles.smallHeader}>
-            <Text style={[styles.heading, { marginTop: 0 }]}>Nearby Parking</Text>
-            <TouchableOpacity>
-              <Text style={{ color: Colors.primary, padding: Spacing * 1.2 }}>
-                See All
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <ParkingList scrollType="vertical" />
+        <View style={{ padding: Spacing, top: 10 }}>
+          <AppTextInput
+            placeholder="Start destination"
+            cursorColor={Colors.primary}
+          />
+          <AppTextInput
+            placeholder="End destination"
+            cursorColor={Colors.primary}
+          />
+          <TouchableOpacity
+            // onPress={handleLogin}
+            style={{
+              padding: Spacing,
+              backgroundColor: Colors.button,
+              // marginVertical: Spacing * 3,
+              borderRadius: Spacing,
+              shadowColor: Colors.text,
+              shadowOffset: {
+                width: 0,
+                height: 4,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 6,
+              elevation: 6,
+              opacity: 0.9,
+            }}
+          >
+            <Text
+              style={{
+                color: Colors.background,
+                textAlign: "center",
+                fontSize: 18,
+                fontWeight: "bold",
+                letterSpacing: 1,
+              }}
+            >
+              Find My Bus
+            </Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -138,7 +133,7 @@ export default home;
 const styles = StyleSheet.create({
   container: {
     width: width,
-    height: height / 4,
+    height: height / 6.5,
     backgroundColor: Colors.primary,
     padding: Spacing * 2,
     borderBottomLeftRadius: 10,
