@@ -31,6 +31,9 @@ export default function RootLayout() {
     <>
       <StatusBar backgroundColor={Colors.background} barStyle="dark-content" />
       <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(home)" options={{ headerShown: false }} />
+        <Stack.Screen name="(welcome)" options={{ headerShown: false }} />
+        <Stack.Screen name="(buses)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </>

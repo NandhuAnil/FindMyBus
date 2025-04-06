@@ -9,17 +9,22 @@ import {
   View,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Colors from "@/constants/Colors";
 import Spacing from "@/constants/Spacing";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppTextInput from "@/components/AppTextInput";
+import { useRouter } from "expo-router";
 
 const { height } = Dimensions.get("window");
 const { width } = Dimensions.get("window");
 
 const home = () => {
   const username = "ExampleUser";
+  const router = useRouter();
+  const [start, setStart] = useState<string>("");
+  const [end, setEnd] = useState<string>("");
+
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -83,21 +88,22 @@ const home = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{ padding: Spacing, top: 10 }}>
+        <View style={{ padding: Spacing, top: 50, height: height }}>
           <AppTextInput
             placeholder="Start destination"
             cursorColor={Colors.primary}
-          />
+            onChangeText={setStart}
+            />
           <AppTextInput
             placeholder="End destination"
             cursorColor={Colors.primary}
+            onChangeText={setEnd}
           />
           <TouchableOpacity
-            // onPress={handleLogin}
+            onPress={() => router.push({ pathname: '/(buses)', params: { start: start, end: end } })}
             style={{
               padding: Spacing,
               backgroundColor: Colors.button,
-              // marginVertical: Spacing * 3,
               borderRadius: Spacing,
               shadowColor: Colors.text,
               shadowOffset: {
