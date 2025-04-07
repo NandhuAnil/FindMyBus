@@ -9,10 +9,24 @@ let busData = [];
 
 const loadData = () => {
     try {
-        const filePath = path.join(__dirname, '../db/tamilnadu_bus_routes.json');
-        const rawData = fs.readFileSync(filePath, 'utf-8');
-        busData = JSON.parse(rawData) || [];
-        console.log(`✅ Loaded ${busData.length} bus records.`);
+        const mainPath = path.join(__dirname, '../db/Dataset.json');
+        const extraPath = path.join(__dirname, '../db/tamilnadu.json');
+
+        const mainRaw = fs.readFileSync(mainPath, 'utf-8');
+        const mainData = JSON.parse(mainRaw) || [];
+
+        let extraData = [];
+        if (fs.existsSync(extraPath)) {
+            const extraRaw = fs.readFileSync(extraPath, 'utf-8');
+            extraData = JSON.parse(extraRaw) || [];
+            console.log(`📦 Loaded optional ExtraDataset with ${extraData.length} records.`);
+        } else {
+            console.log('ℹ️ ExtraDataset.json not found, skipping...');
+        }
+
+        busData = [...mainData, ...extraData];
+        console.log(`✅ Loaded ${busData.length} total bus records.`);
+
     } catch (error) {
         console.error('❌ Error loading bus data:', error);
     }
@@ -31,52 +45,38 @@ export const searchBusesByLocation = (req, res) => {
     const results = [];
 
     for (const bus of busData) {
-        const originalStart = bus["Start Location"].toLowerCase().trim();
-        const originalEnd = bus["End Location"].toLowerCase().trim();
+        const startLoc = bus["Start Location"].toLowerCase().trim();
+        const endLoc = bus["End Location"].toLowerCase().trim();
 
-        const subStops = (bus.sub_stops || []).map(s => ({
-            ...s,
-            stop: s.stop.toLowerCase().trim()
-        }));
+        // parse "Sub-Stops" into array with stop and time
+        const subStopsRaw = bus["Sub-Stops"]?.split("->").map(s => s.trim()) || [];
+        const sub = subStopsRaw.map(stopTime => {
+            const [stop, time] = stopTime.match(/(.*)\s\((.*)\)/)?.slice(1) || [];
+            return { stop: stop.toLowerCase().trim(), time: time?.trim() || "" };
+        });
 
-        // Full stop sequence
-        const allStops = [
-            { stop: originalStart, time: bus["Start Time"] },
-            ...subStops,
-            { stop: originalEnd, time: bus["End Time"] }
+        const fullRoute = [
+            { stop: startLoc, time: bus["Start Time"] },
+            ...sub,
+            { stop: endLoc, time: bus["End Time"] }
         ];
 
-        const startIndex = allStops.findIndex(s => s.stop === normalizedStart);
-        const endIndex = allStops.findIndex(s => s.stop === normalizedEnd);
+        const startIndex = fullRoute.findIndex(s => s.stop === normalizedStart);
+        const endIndex = fullRoute.findIndex(s => s.stop === normalizedEnd);
 
-        if (startIndex === -1 || endIndex === -1) continue;
-
-        // If forward
-        if (startIndex < endIndex) {
-            const sliced = allStops.slice(startIndex, endIndex + 1);
-            const newBus = {
+        if (startIndex !== -1 && endIndex !== -1 && startIndex < endIndex) {
+            results.push({
                 ...bus,
-                "Start Location": sliced[0].stop,
-                "End Location": sliced[sliced.length - 1].stop,
-                "Start Time": sliced[0].time,
-                "End Time": sliced[sliced.length - 1].time,
-                sub_stops: sliced.slice(1, -1)
-            };
-            results.push(newBus);
-        }
-
-        // If reverse
-        if (startIndex > endIndex) {
-            const reversed = allStops.slice(endIndex, startIndex + 1).reverse();
-            const newBus = {
-                ...bus,
-                "Start Location": reversed[0].stop,
-                "End Location": reversed[reversed.length - 1].stop,
-                "Start Time": reversed[0].time,
-                "End Time": reversed[reversed.length - 1].time,
-                sub_stops: reversed.slice(1, -1)
-            };
-            results.push(newBus);
+                user_start: {
+                    stop: start,
+                    time: fullRoute[startIndex].time
+                },
+                user_end: {
+                    stop: end,
+                    time: fullRoute[endIndex].time
+                },
+                sub
+            });
         }
     }
 
